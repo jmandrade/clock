@@ -6,7 +6,7 @@ $jsOffset = $_GET['jsOffset'];
 $offset = '-'.$jsOffset.' minutes';
 
 $currentUserMinutes = (gmdate('G', strtotime($offset))*60)+(gmdate('i'));
-$currentUserTime = (gmdate('g:iA', strtotime($offset)));
+$currentUserTime = (gmdate('g:i:s A', strtotime($offset)));
 $userTimeZone = $jsOffset/60;
 
 if($userTimeZone > 0){
@@ -48,6 +48,7 @@ if(($currentUserMinutes > $morningStart) && ($currentUserMinutes < $morningEnd))
 		    text-align:center;
 		}
 	</style>
+	<meta http-equiv="refresh" content="5">
 </head>
 <body>
 	<h1>It is: <?php echo $currentUserTime; ?></h1>
